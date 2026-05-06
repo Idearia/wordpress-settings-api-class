@@ -106,8 +106,14 @@ abstract class Config
      */
     public static function getDefaultValue( string $query )
     {
-        $defaults = static::getDefaults();
-        
-        return $defaults[ $query ] ?? null;
+        static $defaults_cache = [];
+
+        $class = static::class;
+
+        if ( ! isset( $defaults_cache[ $class ] ) ) {
+            $defaults_cache[ $class ] = static::getDefaults();
+        }
+
+        return $defaults_cache[ $class ][ $query ] ?? null;
     }
 }
