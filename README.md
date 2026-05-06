@@ -15,9 +15,13 @@
 
 # Dopo ogni modifica al repo...
 
-Aggiorna il repository composer di Idearia come da istruzioni:
+Tagga una nuova versione, pushala su GitHub e aggiorna il repository Composer di Idearia:
 
-* https://trello.com/c/Q4wyOV9u/
+```bash
+git tag X.Y
+git push origin master --tags
+curl 'https://forge.laravel.com/servers/349942/sites/958281/deploy/http?token=CQtUNfSXr3t6aMLDsnvnF0NqjTrvmI2Voi2ZgPNY'
+```
 
 
 # Esempio pagina di menu semplice
